@@ -1,0 +1,70 @@
+print("* * * * * * welcome to the hotel management system * * * * * *")
+checkin_info=[]
+checkin_perperson=[]
+checkout_info=[]
+while True:
+print("1.checkin \n2.checkout\n3.info\n4.exit")
+    choice=int(input("enter your choice: "))
+    if choice==1:
+        name=input('enter the name of the guest: ') 
+mob_no=input("enter the guest's  mobile number: ")
+        email=input("enter the guest's email id:")
+print("select the room choice:")
+print("1.standard=1000rs/night \n 2.deulex=2000rs/night \n 3.suite=4000rs ")
+room_choice=int(input('enter the room choice: '))
+no_night=int(input("enter the number of nights the guest will be staying: "))
+        if room_choice==1:
+room_price=1000*no_night
+        if room_choice==2:
+room_price=2000*no_night
+        if room_choice==3:
+room_price=4000*no_night
+room_no=int(input('enter the room no of the guest(standard 1-10) deluxe(11-20) suite(20-25): '))
+
+
+print("the details are as follows: ")
+        print(name)
+        print(mob_no)
+        print(email)
+        print(room_choice)
+print('room number',room_no)
+        print(no_night,'nights')
+        print(room_price)
+
+checkin_perperson = [[ name, mob_no, email, room_choice, no_night, room_price, room_no]]
+checkin_info.extend(checkin_perperson)
+    if choice==2:
+print("select which guest wants to check out :")
+        for x in checkin_info:
+            print(x)
+checkout_choice=int(input("enter your choice in numbers form of 0,1,2...: "))
+checkout_info.extend(checkin_info[checkout_choice])
+        del(checkin_info[checkout_choice])
+print("the guest has checkout ")
+print('the total money to be paid is: ')
+        print(room_price)
+print("if the guest has taken any chargable services please enter the amount below else press enter")
+add_on_price=int(input("please enter the amount here :"))
+total_price=room_price+add_on_price
+print("the total price to be paid is :",total_price)
+print("would you like to pay by cash or card ")
+cash_card=input('enter your choice :')
+print("thank you for paying the total sum of",total_price,"hope we see you again have a great journey")
+    if choice==3:
+print('''for checkin info select 1 
+for checkout info press 2 
+for hotel info press 3 ''')
+info_choice=int(input('enter your choice: '))
+        if info_choice==1:
+print('guest in the hotel',checkin_info)
+        if info_choice==2:
+print("the checked out guests are",checkout_info)#printing the number of guests who have completed their stay
+        if info_choice==3:
+print('welcome to hotel AFK our hotel was founded on 2003 this is a one in class 4 star hotel known for its cheap prices our rooms start from rs1000 and goes to rs4000 ')
+    if choice==4:
+print("thank you for choosing our software hope we see you again")
+exit_choice=input("are you sure you want to exit yes \ no: ")
+        if exit_choice=='yes' or 'Yes':
+            break
+        else:
+            continue
